@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using System.Runtime.CompilerServices;
 using System.Xml.Linq;
 using WebApplication1.Models;
 
@@ -8,24 +9,20 @@ namespace WebApplication1.Controllers;
 [Route("[controller]")]
 public class DistrictController : Controller
 {
-    public readonly List<City> Cities = new List<City>() { 
-        new City()
-        {
-            Name="Istanbul",
-            Code="IST"
-        },
-        new City()
-        {
-            Name="Izmir",
-            Code="IZM"
-        }
 
+    private readonly List<District> Districts = new List<District>()
+    {
+        new District{CityCode="IST",Name="Ataşehir"},
+        new District{CityCode="IST",Name="Kadıköy"},
+        new District{CityCode="IZM",Name="Karşıyaka"}
     };
 
 
+
     [HttpGet]
-    public IActionResult GetCityList()
+    public IActionResult GetDistrictByCityCode(string citycode)
     {
-        return Ok(Cities);
+        var result = Districts.Where(s => s.CityCode == citycode).ToList();
+        return Ok(result);
     }
 }

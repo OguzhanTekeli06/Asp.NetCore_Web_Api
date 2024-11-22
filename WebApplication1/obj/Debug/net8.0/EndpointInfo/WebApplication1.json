@@ -5,10 +5,31 @@
     "version": "1.0"
   },
   "paths": {
+    "/City": {
+      "get": {
+        "tags": [
+          "City"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/District": {
       "get": {
         "tags": [
           "District"
+        ],
+        "parameters": [
+          {
+            "name": "citycode",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
         ],
         "responses": {
           "200": {

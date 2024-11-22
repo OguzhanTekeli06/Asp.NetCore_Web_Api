@@ -1,12 +1,28 @@
 [
   {
-    "ContainingType": "WebApplication1.Controllers.DistrictController",
+    "ContainingType": "WebApplication1.Controllers.CityController",
     "Method": "GetCityList",
-    "RelativePath": "District",
+    "RelativePath": "City",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebApplication1.Controllers.DistrictController",
+    "Method": "GetDistrictByCityCode",
+    "RelativePath": "District",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "citycode",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
     "ReturnTypes": []
   },
   {

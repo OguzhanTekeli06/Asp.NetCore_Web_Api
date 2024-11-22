@@ -1,11 +1,30 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using WebApplication1.Models;
 
 namespace WebApplication1.Controllers;
 
+[ApiController]
+[Route("[controller]")]
 public class CityController : Controller
 {
-    public IActionResult Index()
+    public readonly List<City> Cities = new List<City>() {
+        new City()
+        {
+            Name="Istanbul",
+            Code="IST"
+        },
+        new City()
+        {
+            Name="Izmir",
+            Code="IZM"
+        }
+
+    };
+
+
+    [HttpGet]
+    public IActionResult GetCityList()
     {
-        return View();
+        return Ok(Cities);
     }
 }
