@@ -1,7 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.Runtime.CompilerServices;
 using System.Xml.Linq;
-using WebApplication1.Models;
+using Web.DomainLayer;
+
 
 namespace WebApplication1.Controllers;
 

@@ -1,4 +1,4 @@
-﻿namespace WebApplication1.Models;
+﻿namespace Web.DomainLayer;
 
 public class City
 {

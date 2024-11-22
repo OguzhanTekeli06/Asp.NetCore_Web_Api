@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using WebApplication1.Models;
+
+using Web.DomainLayer;
 
 namespace WebApplication1.Controllers;
 
