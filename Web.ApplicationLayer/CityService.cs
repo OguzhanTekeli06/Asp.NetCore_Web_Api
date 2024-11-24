@@ -1,12 +1,28 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Web.Mvc;
+using Web.DomainLayer;
 
-namespace Web.ApplicationLayer
+namespace Web.ApplicationLayer;
+
+public class CityService
 {
-    internal class CityService
+    public readonly List<City> Cities = new List<City>() {
+        new City()
+        {
+            Name="Istanbul",
+            Code="IST"
+        },
+        new City()
+        {
+            Name="Izmir",
+            Code="IZM"
+        }
+
+    };
+
+
+    [HttpGet]
+    public List<City> GetCityList()
     {
+        return Cities;
     }
 }

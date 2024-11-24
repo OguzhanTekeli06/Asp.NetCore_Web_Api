@@ -3,10 +3,26 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.Mvc;
+using Web.DomainLayer;
 
-namespace Web.ApplicationLayer
+namespace Web.ApplicationLayer;
+
+public class DistrictService
 {
-    internal class DistrictService
+    private readonly List<District> Districts = new List<District>()
     {
+        new District{CityCode="IST",Name="Ataşehir"},
+        new District{CityCode="IST",Name="Kadıköy"},
+        new District{CityCode="IZM",Name="Karşıyaka"}
+    };
+
+
+    [HttpGet]
+    public List<District> GetDistricts(string citycode)
+    {
+        var result = Districts.Where(s => s.CityCode == citycode).ToList();
+        return result;
     }
+
 }

@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-
+using Web.ApplicationLayer;
 using Web.DomainLayer;
 
 namespace WebApplication1.Controllers;
@@ -8,24 +8,12 @@ namespace WebApplication1.Controllers;
 [Route("[controller]")]
 public class CityController : Controller
 {
-    public readonly List<City> Cities = new List<City>() {
-        new City()
-        {
-            Name="Istanbul",
-            Code="IST"
-        },
-        new City()
-        {
-            Name="Izmir",
-            Code="IZM"
-        }
-
-    };
-
+    
 
     [HttpGet]
     public IActionResult GetCityList()
     {
-        return Ok(Cities);
+        var city = new CityService();
+        return Ok(city.GetCityList());
     }
 }
