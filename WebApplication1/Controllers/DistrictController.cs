@@ -11,15 +11,16 @@ namespace WebApplication1.Controllers;
 [Route("[controller]")]
 public class DistrictController : Controller
 {
+    private readonly IDistrictService _districtService;
 
-    
-
-
+    public DistrictController(IDistrictService districtService)
+    {
+        _districtService = districtService;
+    }
 
     [HttpGet]
     public IActionResult GetDistrictByCityCode(string citycode)
     {
-        var district = new DistrictService();
-        return Ok(district.GetDistricts(citycode));
+        return Ok(_districtService.GetDistricts(citycode));
     }
 }

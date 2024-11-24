@@ -3,7 +3,7 @@ using Web.DomainLayer;
 
 namespace Web.ApplicationLayer;
 
-public class CityService
+public class CityService:ICityService
 {
     public readonly List<City> Cities = new List<City>() {
         new City()

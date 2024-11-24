@@ -8,7 +8,7 @@ using Web.DomainLayer;
 
 namespace Web.ApplicationLayer;
 
-public class DistrictService
+public class DistrictService:IDistrictService
 {
     private readonly List<District> Districts = new List<District>()
     {
