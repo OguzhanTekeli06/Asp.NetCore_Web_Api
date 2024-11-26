@@ -7,11 +7,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.0" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.6.2" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Web.ApplicationLayer\Web.ApplicationLayer.csproj" />
+    <ProjectReference Include="..\Web.Database\Web.Database.csproj" />
     <ProjectReference Include="..\web.DomainLayer\Web.DomainLayer.csproj" />
   </ItemGroup>
 
