@@ -2,7 +2,10 @@
 
 public class District
 {
-    public string CityCode { get; set; }
+    public int Id { get; set; }
+    public int CityId { get; set; }
+
+    public City City    { get; set; }// foregni key
     public string Name { get; set; }
 
 }
