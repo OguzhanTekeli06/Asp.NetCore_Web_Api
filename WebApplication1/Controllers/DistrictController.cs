@@ -18,9 +18,9 @@ public class DistrictController : Controller
         _districtService = districtService;
     }
 
-    [HttpGet]
-    public IActionResult GetDistrictByCityCode(string citycode)
-    {
-        return Ok(_districtService.GetDistricts(citycode));
-    }
+    //[HttpGet]
+    //public IActionResult GetDistrictByCityCode(string citycode)
+    //{
+    //    return Ok(_districtService.GetDistricts(citycode));
+    //}
 }

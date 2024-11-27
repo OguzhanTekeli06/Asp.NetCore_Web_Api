@@ -10,19 +10,19 @@ namespace Web.ApplicationLayer;
 
 public class DistrictService:IDistrictService
 {
-    private readonly List<District> Districts = new List<District>()
-    {
-        new District{CityCode="IST",Name="Ataşehir"},
-        new District{CityCode="IST",Name="Kadıköy"},
-        new District{CityCode="IZM",Name="Karşıyaka"}
-    };
+    //private readonly List<District> Districts = new List<District>()
+    //{
+    //    new District{CityCode="IST",Name="Ataşehir"},
+    //    new District{CityCode="IST",Name="Kadıköy"},
+    //    new District{CityCode="IZM",Name="Karşıyaka"}
+    //};
 
 
-    [HttpGet]
-    public List<District> GetDistricts(string citycode)
-    {
-        var result = Districts.Where(s => s.CityCode == citycode).ToList();
-        return result;
-    }
+    
+    //public List<District> GetDistricts(string citycode)
+    //{
+    //    var result = Districts.Where(s => s.CityCode == citycode).ToList();
+    //    return result;
+    //}
 
 }

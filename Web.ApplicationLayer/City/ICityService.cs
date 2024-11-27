@@ -6,6 +6,6 @@ namespace Web.ApplicationLayer
     public interface ICityService
     {
 
-        List<City> GetCityList();
+       // List<City> GetCityList();
     }
 }

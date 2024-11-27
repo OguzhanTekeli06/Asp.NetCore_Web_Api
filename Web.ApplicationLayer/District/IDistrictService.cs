@@ -9,5 +9,5 @@ namespace Web.ApplicationLayer;
 
 public interface IDistrictService
 {
-    List<District> GetDistricts(string citycode)
+  //  List<District> GetDistricts(string citycode)
 }

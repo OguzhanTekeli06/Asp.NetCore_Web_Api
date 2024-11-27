@@ -14,7 +14,7 @@ public class DistrictConfig : IEntityTypeConfiguration<District>
 {
     public void Configure(EntityTypeBuilder<District> builder)
     {
-        builder.ToTable(nameof(City), "dbo");
+        builder.ToTable(nameof(District), "dbo");
         builder.HasKey(x => x.Id);
         builder.Property(x => x.Name).HasMaxLength(256).IsRequired();
         builder.Property(x => x.Status).HasDefaultValue(DataStatus.Active);

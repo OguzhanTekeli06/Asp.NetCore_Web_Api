@@ -15,9 +15,9 @@ public class CityController : Controller
         _cityService = cityService;
     }
 
-    [HttpGet]
-    public IActionResult GetCityList()
-    {
-        return Ok(_cityService.GetCityList());
-    }
+    //[HttpGet]
+    //public IActionResult GetCityList()
+    //{
+    //    return Ok(_cityService.GetCityList());
+    //}
 }

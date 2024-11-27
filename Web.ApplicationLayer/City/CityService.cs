@@ -5,24 +5,24 @@ namespace Web.ApplicationLayer;
 
 public class CityService:ICityService
 {
-    public readonly List<City> Cities = new List<City>() {
-        new City()
-        {
-            Name="Istanbul",
-            Code="IST"
-        },
-        new City()
-        {
-            Name="Izmir",
-            Code="IZM"
-        }
+    //public readonly List<City> Cities = new List<City>() {
+    //    new City()
+    //    {
+    //        Name="Istanbul",
+    //        Code="IST"
+    //    },
+    //    new City()
+    //    {
+    //        Name="Izmir",
+    //        Code="IZM"
+    //    }
 
-    };
+    //};
 
 
-    [HttpGet]
-    public List<City> GetCityList()
-    {
-        return Cities;
-    }
+    //[HttpGet]
+    //public List<City> GetCityList()
+   // {
+   //     return Cities;
+   // }
 }

@@ -6,15 +6,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Web.Database.Context
-{
-    public sealed class Context : DbContext
-    {
-        public Context(DbContextOptions Options) : base(Options) { }
+namespace Web.Database;
 
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
-            modelBuilder.ApplyConfigurationsFromAssembly(typeof(Context).Assembly).Seed();
-        }
+public sealed class Context : DbContext
+{
+    public Context(DbContextOptions Options) : base(Options) { }
+
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        modelBuilder.ApplyConfigurationsFromAssembly(typeof(Context).Assembly).Seed();
     }
 }
