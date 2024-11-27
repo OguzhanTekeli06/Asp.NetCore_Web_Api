@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Web.DomainLayer;
+using Web.DomainLayer.Shared;
 
 namespace Web.Database.EntityConfigurations;
 
@@ -15,6 +16,7 @@ public class CityConfig : IEntityTypeConfiguration<City>
     {
         builder.ToTable(nameof(City),"dbo");
         builder.HasKey(x => x.Id);
+        builder.Property(x => x.Status).HasDefaultValue(DataStatus.Active);
         builder.Property(x => x.Name).HasMaxLength(256).IsRequired();
 
         
