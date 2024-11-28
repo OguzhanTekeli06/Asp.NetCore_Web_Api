@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using Web.ApplicationLayer;
 using Web.Database;
+using Web.Database.Repository;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,13 +12,12 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-DotNetEnv.Env.Load();
-
 
 string connectionString = "Server=DESKTOP-0QE53DC;Database=ExampleDb;Integrated Security=True;TrustServerCertificate=True;";
-builder.Services.AddDbContext<Context>(Options => Options.UseSqlServer("connectionString"));
+builder.Services.AddDbContext<Context>(Options => Options.UseSqlServer(connectionString));
 builder.Services.AddTransient<ICityService, CityService>();  // dependeny 
-builder.Services.AddTransient<IDistrictService, IDistrictService>();
+builder.Services.AddTransient<ICityRepository, CityRepository>();
+builder.Services.AddTransient<IDistrictService, DistrictService>();
 
 var app = builder.Build();
 

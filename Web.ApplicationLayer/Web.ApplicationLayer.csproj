@@ -11,6 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Web.Database\Web.Database.csproj" />
     <ProjectReference Include="..\web.DomainLayer\Web.DomainLayer.csproj" />
   </ItemGroup>
 

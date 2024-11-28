@@ -15,9 +15,10 @@ public class CityController : Controller
         _cityService = cityService;
     }
 
-    //[HttpGet]
-    //public IActionResult GetCityList()
-    //{
-    //    return Ok(_cityService.GetCityList());
-    //}
+    [HttpPut]
+    public async Task<IActionResult> Add(City city)
+    {
+        await _cityService.Add(city);
+        return Ok();
+    }
 }
