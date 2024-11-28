@@ -9,7 +9,7 @@ public sealed class ContextFactory : IDesignTimeDbContextFactory<Context>
     public Context CreateDbContext(string[] args)
     {
         DotNetEnv.Env.Load();
-        string connectionString = Environment.GetEnvironmentVariable("DB_CONNECTION_STRING");
+        string connectionString = "Server=DESKTOP-0QE53DC;Database=ExampleDb;Integrated Security=True;TrustServerCertificate=True;";
         if (string.IsNullOrEmpty(connectionString))
         {
             throw new InvalidOperationException("Connection string not found. Check your .env file.");

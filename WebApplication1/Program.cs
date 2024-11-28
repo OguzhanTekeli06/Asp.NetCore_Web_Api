@@ -14,7 +14,7 @@ builder.Services.AddSwaggerGen();
 DotNetEnv.Env.Load();
 
 
-string connectionString = Environment.GetEnvironmentVariable("DB_CONNECTION_STRING");
+string connectionString = "Server=DESKTOP-0QE53DC;Database=ExampleDb;Integrated Security=True;TrustServerCertificate=True;";
 builder.Services.AddDbContext<Context>(Options => Options.UseSqlServer("connectionString"));
 builder.Services.AddTransient<ICityService, CityService>();  // dependeny 
 builder.Services.AddTransient<IDistrictService, IDistrictService>();

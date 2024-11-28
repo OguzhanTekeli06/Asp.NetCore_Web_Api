@@ -1,15 +1,20 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Web.DomainLayer;
 
 namespace Web.Database;
 
 public static class ContextSeed
 {
-    public static void Seed(this ModelBuilder modelBuilder) { }
+    public static void Seed(this ModelBuilder builder) {
+        builder.Entity<City>().HasData(new
+        {
+            Id = 1,
+            Name = "İstanbul"
+
+        });
+
+        
+    }
 
  
 }
