@@ -2,7 +2,7 @@
 
 namespace Web.DomainLayer;
 
-public class District
+public class District : BaseClass
 {
     public int Id { get; set; }
     public int CityId { get; set; }

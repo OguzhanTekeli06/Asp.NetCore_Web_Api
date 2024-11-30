@@ -1,23 +1,24 @@
 ﻿using System.Web.Mvc;
 using Web.DomainLayer;
-
 using Web.Database.Repository;
+using Web.Database.UnitofWork;
 namespace Web.ApplicationLayer;
 
 public class CityService : ICityService
 {
 
-    private readonly ICityRepository _cityRepository;    // dependency injection yapılımış olunuyor.
+    private readonly IUnitOfWork _unitOfWork;    // dependency injection yapılımış olunuyor.
 
-    public CityService(ICityRepository cityRepository)
+    public CityService(IUnitOfWork unitOfWork)
     {
-        _cityRepository = cityRepository;
+        _unitOfWork = unitOfWork;
     }
 
 
     public async Task Add(City city)
     {
-        await _cityRepository.AddAsync(city);
+        await _unitOfWork.Cities.AddAsync(city);
+        await _unitOfWork.CompleteAsync();
     }
 
 
