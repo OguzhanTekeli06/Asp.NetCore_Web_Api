@@ -7,13 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNet.Mvc" Version="5.3.0" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\Web.Database\Web.Database.csproj" />
     <ProjectReference Include="..\web.DomainLayer\Web.DomainLayer.csproj" />
-    <ProjectReference Include="..\Web.ViewModel\Web.ViewModel.csproj" />
   </ItemGroup>
 
 </Project>
