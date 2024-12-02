@@ -14,7 +14,7 @@ namespace Web.Database.EntityConfigurations
     {
         public void Configure(EntityTypeBuilder<Personnel> builder)
         {
-            builder.ToTable(nameof(City), "dbo");
+            builder.ToTable(nameof(Personnel), "dbo");
             builder.HasKey(x => x.Id);
             builder.Property(x => x.Status).HasDefaultValue(DataStatus.Active);
             builder.Property(x => x.FullName).HasMaxLength(500).IsRequired();
