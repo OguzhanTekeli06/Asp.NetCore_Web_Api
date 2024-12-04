@@ -12,4 +12,6 @@ public interface IPersonnelRepository
 {
     Task<Personnel> AddAsync(Personnel personnel);
 
+    Task<Personnel> Get(int id);
+    Personnel Update(Personnel personnel);
 } 

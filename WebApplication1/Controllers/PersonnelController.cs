@@ -5,7 +5,7 @@ using Web.ViewModel;
 namespace Web.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("[controller]")]   //[Route("[controller]")] ifadesi, ASP.NET Core'a bu controller'ın adını otomatik olarak URL'nin bir parçası olarak kullanmasını söyler.
     public class PersonnelController : Controller
     {
         private readonly IPersonnelService _personnelService;
@@ -13,11 +13,21 @@ namespace Web.Controllers
         {
             _personnelService = personnelService;
         }
-
+        [HttpPut]
+        [Route(nameof(AddAsync))]
         public async Task<IActionResult> AddAsync(AddPersonnelModel model)
         {
             var result = await _personnelService.AddAsync(model);
-            return Ok();
+            return Ok(result);
+        }
+
+
+        [HttpPut]
+        [Route(nameof(UpdateAsync))]
+        public async Task<IActionResult> UpdateAsync(AddPersonnelModel model)
+        {
+            var result = await _personnelService.UpdateAsync(model);
+            return Ok(result);
         }
     }
 }

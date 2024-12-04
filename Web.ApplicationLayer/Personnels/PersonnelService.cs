@@ -38,6 +38,33 @@ namespace Web.ApplicationLayer.Personnels
             
         }
 
-        
+        public async Task<AddPersonnelModel> UpdateAsync(AddPersonnelModel model)
+        {
+            try
+            {
+                var record = await _unitOfWork.Personnels.Get(model.Id);                                        //hangisini update edeceğimizi bilmek için ıdyi bilmemmiz gerek.
+                if (record != null)
+                {
+                    record.FullName = model.FullName;
+                    record.Gender = model.Gender;
+                    record.BirthDate = model.BirthDate;
+                    record.DistrictId   = model.DistrictId;
+
+                    _unitOfWork.Personnels.Update(record);
+                    await _unitOfWork.CompleteAsync();
+                    return model;   
+                }
+                return new AddPersonnelModel();  // eğer yoksa boş bir data dönüyoruz
+                
+                    
+              
+
+            }
+            catch (Exception exp)
+            {
+                throw new Exception(exp.Message);
+
+            }
+        }
     }
 }

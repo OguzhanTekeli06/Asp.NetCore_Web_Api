@@ -1,7 +1,9 @@
 using Microsoft.EntityFrameworkCore;
 using Web.ApplicationLayer;
+using Web.ApplicationLayer.Personnels;
 using Web.Database;
 using Web.Database.Repository;
+using Web.Database.Repository.Personnels;
 using Web.Database.UnitofWork;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -19,6 +21,8 @@ builder.Services.AddDbContext<Context>(Options => Options.UseSqlServer(connectio
 builder.Services.AddTransient<ICityService, CityService>();  // dependeny 
 builder.Services.AddTransient<ICityRepository, CityRepository>();
 builder.Services.AddTransient<IDistrictService, DistrictService>();
+builder.Services.AddTransient<IPersonnelRepository, PersonnelRepository>();
+builder.Services.AddTransient<IPersonnelService, PersonnelService>();
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 
 var app = builder.Build();

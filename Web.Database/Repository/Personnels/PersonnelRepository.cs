@@ -23,5 +23,15 @@ public class PersonnelRepository : IPersonnelRepository
         return (await _context.Set<Personnel>().AddAsync(personnel)).Entity;    
     }
 
-    
+    public async Task<Personnel> Get(int id)
+    {
+        var record= await _context.Set<Personnel>().FindAsync(id);
+        return record;
+    }
+
+    public Personnel Update(Personnel personnel)
+    {
+        return ( _context.Set<Personnel>().Update(personnel)).Entity;
+
+    }
 }
