@@ -29,5 +29,13 @@ namespace Web.Controllers
             var result = await _personnelService.UpdateAsync(model);
             return Ok(result);
         }
+
+        [HttpDelete]
+        [Route(nameof(DeleteAsync))]
+        public async Task<IActionResult> DeleteAsync(int id)
+        {
+            var result = await _personnelService.DeleteAsync(id);
+            return Ok(result);
+        }
     }
 }
