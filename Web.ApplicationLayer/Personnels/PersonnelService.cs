@@ -1,6 +1,7 @@
 ﻿using Web.Database.UnitofWork;
 using Web.ViewModel;
 using Web.DomainLayer;
+using Web.DomainLayer.Shared;
 namespace Web.ApplicationLayer.Personnels
 {
     public class PersonnelService : IPersonnelService
@@ -64,6 +65,28 @@ namespace Web.ApplicationLayer.Personnels
             {
                 throw new Exception(exp.Message);
 
+            }
+        }
+
+        public async Task<bool> DeleteAsync(int id)
+        {
+            try
+            {
+                var record = await _unitOfWork.Personnels.Get(id);                                        //hangisini update edeceğimizi bilmek için ıdyi bilmemmiz gerek.
+                if (record != null)
+                {
+                    record.Status = DataStatus.Deleted; 
+                    _unitOfWork.Personnels.Update(record);         // bu iki satır UpdateAsync olarak birleştirilebillir mi?  bu satır Personelrepoisotrydeki Update fonksiyonu.
+                    await _unitOfWork.CompleteAsync();
+                    return true;
+                }
+                return false;
+
+            }
+            catch (Exception exp)
+            {
+
+                throw new Exception(exp.Message);
             }
         }
     }
