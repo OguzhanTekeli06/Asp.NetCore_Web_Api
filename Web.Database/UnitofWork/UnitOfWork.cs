@@ -10,13 +10,21 @@ public class UnitOfWork : IUnitOfWork
 
     public IPersonnelRepository Personnels { get; private set; }
 
-    public ICityRepository cityRepository => throw new NotImplementedException();
+    public IDistrictRepository Districts { get; private set; } // Doğru şekilde tanımlandı
+
+    //public ICityRepository cityRepository => throw new NotImplementedException();
+
+
+
+    
 
     public UnitOfWork(Context context)
     {
         _context = context;
         Cities = new CityRepository(_context);
         Personnels = new PersonnelRepository(_context);
+        Districts = new DistrictRepository(_context);
+
     }
 
     public void Dispose()

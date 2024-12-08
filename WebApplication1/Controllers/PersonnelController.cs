@@ -37,5 +37,13 @@ namespace Web.Controllers
             var result = await _personnelService.DeleteAsync(id);
             return Ok(result);
         }
+
+        [HttpPut]
+        [Route(nameof(AddPersonnelInfoAsync))]
+        public async Task<IActionResult> AddPersonnelInfoAsync(AddPersonnelInfoModel model)
+        {
+            var result = await _personnelService.AddPersonnelAsync(model);
+            return Ok(result);
+        }
     }
 }

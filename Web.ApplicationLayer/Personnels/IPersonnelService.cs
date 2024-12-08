@@ -13,6 +13,8 @@ namespace Web.ApplicationLayer.Personnels
         Task<AddPersonnelModel> UpdateAsync(AddPersonnelModel model);
         Task<bool> DeleteAsync(int id);
 
+        Task<AddPersonnelInfoModel> AddPersonnelAsync(AddPersonnelInfoModel model);
+
 
 
     }

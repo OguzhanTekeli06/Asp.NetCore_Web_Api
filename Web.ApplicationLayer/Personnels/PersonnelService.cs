@@ -89,5 +89,69 @@ namespace Web.ApplicationLayer.Personnels
                 throw new Exception(exp.Message);
             }
         }
+
+
+        public async Task<AddPersonnelInfoModel> AddPersonnelAsync(AddPersonnelInfoModel model)
+        { 
+            try
+            {
+
+                var personnel = new Personnel();
+                personnel.Gender = model.Gender;
+                personnel.BirthDate = model.BirthDate;
+                personnel.FullName = model.FullName;
+
+                var district = await _unitOfWork.Districts.GetDistrictByCityAndName(model.CityName,model.DistrictName);
+                if (district != null)
+                {
+                    personnel.DistrictId = district.Id;
+                    await _unitOfWork.Personnels.AddAsync(personnel);
+                    await _unitOfWork.CompleteAsync();
+                    model.Id = personnel.Id;
+                    return model;
+                }
+
+                var city = await _unitOfWork.Cities.GetCityByName(model.CityName);
+
+                if (city != null)
+                {
+                    var newDistrictForCity = new District()           //burda da maping
+                    {
+                        CityId = city.Id,
+                        Name= model.DistrictName
+                    };
+                    newDistrictForCity.Personnels.Add(personnel);
+                    await _unitOfWork.Districts.AddAsync(newDistrictForCity);
+                    await _unitOfWork.CompleteAsync();
+                    model.Id = personnel.Id;
+                    return model;
+                }
+
+                var newCity = new City()
+                {
+                    Name = model.CityName,
+
+                };
+                var newDistrict = new District()   // collection olarak eklediğimiz için db ye kaydederken kendisi otomatik olarak kaydettiği cityId yi alıcak. o yüzden cityıd eklemedik.
+                {
+                    Name = model.DistrictName
+                };
+                // bu city altında bu district, bu d. altında bu personel var.
+                
+                newDistrict.Personnels.Add(personnel);
+                newCity.Districts.Add(newDistrict);
+                await _unitOfWork.Cities.AddAsync(newCity);
+                await _unitOfWork.CompleteAsync();
+                model.Id = personnel.Id;
+                return model;
+            }
+            catch (Exception exp)
+            {
+
+                throw new InvalidOperationException("An error occurred while adding personnel.", exp);
+             }
+        }
+
+
     }
 }

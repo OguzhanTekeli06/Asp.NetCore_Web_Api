@@ -14,6 +14,8 @@ namespace Web.Database.UnitofWork
 
         IPersonnelRepository Personnels { get; }
 
+        IDistrictRepository Districts { get; }
+
         Task<int> CompleteAsync();
     }
 }
